@@ -9,3 +9,4 @@ int shortestPathCheck(int arr[10][10], int start, int dest, int stepCount);
 int matrixBuild(int arr[10][10]);
 int isB(int arr[10][10]);
 int isC(int arr[10][10]);
+int Dist(int arr[10][10], int start, int dest)
