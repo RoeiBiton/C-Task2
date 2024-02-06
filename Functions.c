@@ -1,9 +1,7 @@
-
+#include <stdio.h>
+#include <ctype.h>
 #include "Functions.h"
 
-void matrixSet(int arr[10][10], int value, int i, int j){
-    arr[i][j]=value;
-}
 int pathExist(int arr[10][10], int start, int dest){
     int isTherePath=0;
     //check for direct path
@@ -72,4 +70,38 @@ int shortestPath(int arr[10][10], int start, int dest){
     else {
         return shortestPathCheck(arr, start, dest, 0);
     }
+}
+int matrixBuild(int arr[10][10]) {
+    int x;
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            scanf("%d", &x);
+           // printf("in A  [%d] [%d] = %d", i, j, x);
+            arr[i][j] = x;
+        }
+    }
+    return 1;
+}
+int isB(int arr[10][10]) {
+    int userInput;
+    int i;
+    int j;
+    scanf("%d %d",&i , &j);
+   // printf("inside B, i = %d j =%d" ,i, j);
+    printf("%d", pathExist(arr, i, j));
+    return 1;
+}
+int isC(int arr[10][10]) {
+    int userInput;
+    int i;
+    int j;
+    scanf("%d %d",&i , &j);
+  //  printf("inside C, i = %d j =%d" ,i, j);
+    if(pathExist(arr, i ,j)!=0){
+        printf("%d", shortestPath(arr, i, j));
+    }
+    else{
+        printf("-1");
+    }
+    return 1;
 }
