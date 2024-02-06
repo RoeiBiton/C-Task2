@@ -88,7 +88,12 @@ int isB(int arr[10][10]) {
     int j;
     scanf("%d %d",&i , &j);
    // printf("inside B, i = %d j =%d" ,i, j);
-    printf("%d", pathExist(arr, i, j));
+   if(pathExist(arr, i, j)==1){
+       printf("True\n");
+   }
+   else{
+    printf("False\n");
+   }
     return 1;
 }
 int isC(int arr[10][10]) {
@@ -98,10 +103,10 @@ int isC(int arr[10][10]) {
     scanf("%d %d",&i , &j);
   //  printf("inside C, i = %d j =%d" ,i, j);
     if(pathExist(arr, i ,j)!=0){
-        printf("%d", shortestPath(arr, i, j));
+        printf("%d\n", shortestPath(arr, i, j));
     }
     else{
-        printf("-1");
+        printf("-1\n");
     }
     return 1;
 }
