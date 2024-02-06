@@ -56,6 +56,7 @@ int shortestPathCheck(int arr[10][10], int start, int dest, int stepCount){
         if(arr[start][j]!=0){
             if(pathExist(tempArr, j, dest)!=0){
                 int x = shortestPathCheck(tempArr, j, dest, arr[start][j]);
+                ////////////////////////////// one more if
                 if(x<tempStepCount){
                     tempStepCount=x;
                 }
@@ -102,11 +103,30 @@ int isC(int arr[10][10]) {
     int j;
     scanf("%d %d",&i , &j);
   //  printf("inside C, i = %d j =%d" ,i, j);
-    if(pathExist(arr, i ,j)!=0){
-        printf("%d\n", shortestPath(arr, i, j));
+    if(Dist(arr, i ,j)!=0){
+        printf("%d\n", Dist(arr, i, j));
     }
     else{
         printf("-1\n");
     }
     return 1;
+}
+int Dist(int arr[10][10], int start, int dest){
+        if(start==dest){
+            arr[start][dest]=0;
+            return 0;
+        }
+        for(int k =0; k<10; k++){
+            for(int i =0; k<10; k++){
+                for(int j =0; k<10; k++){
+                    if(arr[i][k]==0 || arr[k][j]==0){
+                        continue;
+                    }
+                    if(arr[i][j]==0||arr[i][k]+arr[k][j]<arr[i][j]){
+                        arr[i][j]=arr[i][k]+arr[k][j];
+                    }
+                }
+            }
+        }
+        return arr[start][dest];
 }
